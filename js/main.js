@@ -274,7 +274,7 @@ class BaskLightApp {
                 artist: 'আরিজিৎ সিং',
                 album: 'লেটেস্ট হিটস',
                 thumbnailURL: './assets/images/song-thumbnails/60bd5e70bb279e0be0cb6948e734d14f.jpg',
-                videoURL: './assets/videos/songs/bollywood-hit-song.mp4', // Video format for songs
+                videoURL: './assets/videos/songs/Janaab-e-Aali___Full_Song___WAR_2___Hrithik_Roshan,_NTR___Pritam,_Sachet_Tandon,_Saaj_Bhatt,_Amitabh(1080p).mp4', // Video format for songs
                 audioURL: './assets/audio/songs/bollywood-hit-song.mp3', // Audio extracted version
                 language: 'hindi',
                 genre: 'bollywood',
@@ -289,7 +289,7 @@ class BaskLightApp {
                 artist: 'শ্রেয়া ঘোষাল',
                 album: 'বাংলা সংগীত',
                 thumbnailURL: './assets/images/song-thumbnails/Screenshot_20251006-225946.png',
-                videoURL: './assets/videos/songs/bengali-classic-song.mp4', // Video format for songs
+                videoURL: './assets/videos/songs/Saiyaara_Title_Song___Ahaan_Panday,_Aneet_Padda___Tanishk_Bagchi,_Faheem_A,_Arslan_N___Irshad_Kamil(1080p).mp4', // Video format for songs
                 audioURL: './assets/audio/songs/bengali-classic-song.mp3', // Audio extracted version
                 language: 'bengali',
                 genre: 'classical',
