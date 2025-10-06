@@ -114,8 +114,11 @@ class MusicPage {
             if (e.target.id === 'play-btn' || e.target.closest('#play-btn')) {
                 this.handlePlaySong();
             }
-            if (e.target.id === 'download-song-btn' || e.target.closest('#download-song-btn')) {
-                this.handleDownloadSong();
+            if (e.target.id === 'download-video-btn' || e.target.closest('#download-video-btn')) {
+                this.handleDownloadSong('video');
+            }
+            if (e.target.id === 'download-audio-btn' || e.target.closest('#download-audio-btn')) {
+                this.handleDownloadSong('audio');
             }
             if (e.target.id === 'favorite-song-btn' || e.target.closest('#favorite-song-btn')) {
                 this.handleFavoriteSong();
@@ -480,7 +483,7 @@ class MusicPage {
         this.playSong(this.currentSong);
     }
 
-    handleDownloadSong() {
+    handleDownloadSong(format = 'audio') {
         if (!window.authManager || !window.authManager.isLoggedIn()) {
             window.authManager.openModal('login');
             return;
@@ -488,11 +491,36 @@ class MusicPage {
 
         if (!this.currentSong) return;
 
-        // Create download link
+        // Create download link based on format
         const link = document.createElement('a');
-        link.href = this.currentSong.audioURL;
-        link.download = `${this.currentSong.title} - ${this.currentSong.artist}.mp3`;
+        
+        if (format === 'video' && this.currentSong.videoURL) {
+            link.href = this.currentSong.videoURL;
+            link.download = `${this.currentSong.title} - ${this.currentSong.artist}.mp4`;
+        } else {
+            link.href = this.currentSong.audioURL;
+            link.download = `${this.currentSong.title} - ${this.currentSong.artist}.mp3`;
+        }
+        
         link.click();
+        
+        // Show download notification
+        this.showDownloadNotification(format);
+    }
+
+    showDownloadNotification(format) {
+        const notification = document.createElement('div');
+        notification.className = 'download-notification';
+        notification.innerHTML = `
+            <i class="fas fa-download"></i>
+            <span>Downloading ${format === 'video' ? 'Video (MP4)' : 'Audio (MP3)'}...</span>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
     }
 
     handleFavoriteSong() {

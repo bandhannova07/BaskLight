@@ -10,9 +10,10 @@ assets/
 │   ├── movie-thumbnails/     # Movie poster images
 │   └── song-thumbnails/      # Song artwork images
 ├── videos/
-│   └── movies/              # Movie video files
+│   ├── movies/              # Movie video files
+│   └── songs/               # Song video files (music videos)
 └── audio/
-    └── songs/               # Song audio files
+    └── songs/               # Song audio files (extracted MP3)
 ```
 
 ## 🎬 Movie Files
@@ -46,14 +47,23 @@ assets/
   - `rabindra-sangeet-classic.jpg`
   - `bengali-folk-song.jpg`
 
+### Song Videos (`assets/videos/songs/`)
+- **Format**: MP4, WebM
+- **Quality**: 720p, 1080p
+- **Naming**: `song-id.mp4` (example: `hindi-song-1.mp4`)
+- **Examples**:
+  - `bollywood-hit-2024.mp4` (music video)
+  - `rabindra-sangeet-classic.mp4` (music video)
+  - `bengali-folk-song.mp4` (music video)
+
 ### Song Audio (`assets/audio/songs/`)
 - **Format**: MP3, WAV, OGG
 - **Quality**: 128kbps, 320kbps
 - **Naming**: `song-id.mp3` (example: `hindi-song-1.mp3`)
 - **Examples**:
-  - `bollywood-hit-2024.mp3`
-  - `rabindra-sangeet-classic.mp3`
-  - `bengali-folk-song.mp3`
+  - `bollywood-hit-2024.mp3` (audio only)
+  - `rabindra-sangeet-classic.mp3` (audio only)
+  - `bengali-folk-song.mp3` (audio only)
 
 ## 🔗 Firebase এ কিভাবে Reference করবে
 
@@ -74,7 +84,10 @@ assets/
   id: "bollywood-hit-2024",
   title: "Bollywood Hit Song",
   thumbnailURL: "./assets/images/song-thumbnails/bollywood-hit-2024.jpg",
-  audioURL: "./assets/audio/songs/bollywood-hit-2024.mp3",
+  videoURL: "./assets/videos/songs/bollywood-hit-2024.mp4", // Music video
+  audioURL: "./assets/audio/songs/bollywood-hit-2024.mp3", // Audio only
+  hasVideo: true, // Video version available
+  hasAudio: true, // Audio version available
   // ... other fields
 }
 ```

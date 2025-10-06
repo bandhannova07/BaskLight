@@ -268,22 +268,34 @@ class BaskLightApp {
     getFallbackSongs() {
         return [
             {
-                id: 'song1',
+                id: 'bollywood-hit-song',
                 type: 'song',
-                title: 'Sample Hindi Song',
-                artist: 'Popular Artist',
-                thumbnailURL: 'https://via.placeholder.com/300x300?text=Song+1',
+                title: 'বলিউড হিট গান',
+                artist: 'আরিজিৎ সিং',
+                album: 'লেটেস্ট হিটস',
+                thumbnailURL: './assets/images/song-thumbnails/60bd5e70bb279e0be0cb6948e734d14f.jpg',
+                videoURL: './assets/videos/songs/bollywood-hit-song.mp4', // Video format for songs
+                audioURL: './assets/audio/songs/bollywood-hit-song.mp3', // Audio extracted version
                 language: 'hindi',
-                genre: 'bollywood'
+                genre: 'bollywood',
+                duration: '4:30',
+                hasVideo: true, // Indicates video version available
+                hasAudio: true  // Indicates audio-only version available
             },
             {
-                id: 'song2',
+                id: 'bengali-classic-song',
                 type: 'song',
-                title: 'Sample Bengali Song',
-                artist: 'Famous Singer',
-                thumbnailURL: 'https://via.placeholder.com/300x300?text=Song+2',
+                title: 'বাংলা ক্লাসিক গান',
+                artist: 'শ্রেয়া ঘোষাল',
+                album: 'বাংলা সংগীত',
+                thumbnailURL: './assets/images/song-thumbnails/Screenshot_20251006-225946.png',
+                videoURL: './assets/videos/songs/bengali-classic-song.mp4', // Video format for songs
+                audioURL: './assets/audio/songs/bengali-classic-song.mp3', // Audio extracted version
                 language: 'bengali',
-                genre: 'classical'
+                genre: 'classical',
+                duration: '5:15',
+                hasVideo: true,
+                hasAudio: true
             }
         ];
     }

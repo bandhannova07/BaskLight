@@ -77,3 +77,13 @@ firebase-debug.log
 # Backup files
 *.bak
 *.backup
+
+# Large media files (store separately or use Git LFS)
+assets/videos/songs/*.mp4
+assets/videos/movies/*.mp4
+assets/audio/songs/*.mp3
+*.mp4
+*.mp3
+*.wav
+*.avi
+*.mov

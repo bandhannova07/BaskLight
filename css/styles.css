@@ -1202,22 +1202,63 @@ ul, ol {
     color: var(--primary-color);
 }
 
-.social-links {
+.song-actions {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background: var(--background-light);
-    border-radius: 50%;
+.download-options {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.download-options .btn-secondary {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+}
+
+.download-options .btn-secondary:first-child {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+}
+
+.download-options .btn-secondary:last-child {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Download Notification */
+.download-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    transition: var(--transition-fast);
+    gap: 0.5rem;
+    z-index: 10000;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.download-notification i {
+    font-size: 1.2rem;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .social-links a:hover {

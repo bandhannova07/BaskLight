@@ -144,22 +144,25 @@
                         <span class="song-artist" id="modal-song-artist"></span>
                         <span class="song-album" id="modal-song-album"></span>
                         <span class="song-year" id="modal-song-year"></span>
-                        <span class="song-language" id="modal-song-language"></span>
                     </div>
                     <div class="song-actions">
                         <button class="btn-primary" id="play-btn">
                             <i class="fas fa-play"></i> Play Now
                         </button>
-                        <button class="btn-secondary" id="download-song-btn">
-                            <i class="fas fa-download"></i> Download
-                        </button>
-                        <button class="btn-favorite" id="favorite-song-btn">
+                        <div class="download-options">
+                            <button class="btn-secondary" id="download-video-btn">
+                                <i class="fas fa-video"></i> Download Video (MP4)
+                            </button>
+                            <button class="btn-secondary" id="download-audio-btn">
+                                <i class="fas fa-music"></i> Download Audio (MP3)
+                            </button>
+                        </div>
+                        <button class="btn-icon" id="favorite-song-btn">
                             <i class="far fa-heart"></i>
                         </button>
                     </div>
                     <div class="login-prompt hidden" id="login-prompt">
                         <p>Please login to play or download songs</p>
-                        <button class="btn-login-prompt">Login Now</button>
                     </div>
                 </div>
             </div>
