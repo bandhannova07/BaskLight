@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaskLight - Premium Cinematic Experience</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>BaskLight</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="movies.html" class="nav-link">Movies</a>
+                <a href="music.html" class="nav-link">Music</a>
+                <a href="about.html" class="nav-link">About</a>
+                <div class="nav-auth" id="nav-auth">
+                    <button class="btn-login" id="login-btn">Login</button>
+                    <button class="btn-signup" id="signup-btn">Sign Up</button>
+                </div>
+                <div class="nav-user hidden" id="nav-user">
+                    <div class="user-dropdown">
+                        <img src="" alt="User" class="user-avatar" id="user-avatar">
+                        <span class="user-name" id="user-name"></span>
+                        <div class="dropdown-content">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="hero-background"></div>
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Experience Cinema Like Never Before</h1>
+                        <p class="hero-description">Immerse yourself in premium Hindi and Bengali movies and music with BaskLight's cinematic streaming platform.</p>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" id="hero-watch">
+                                <i class="fas fa-play"></i> Start Watching
+                            </button>
+                            <button class="btn-secondary" id="hero-learn">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Content</h2>
+            <div class="featured-grid" id="featured-grid">
+                <!-- Featured content will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="movies">
+                    <div class="category-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Movies</h3>
+                    <p>Premium Hindi & Bengali Films</p>
+                </div>
+                <div class="category-card" data-category="music">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music</h3>
+                    <p>Latest Songs & Albums</p>
+                </div>
+                <div class="category-card" data-category="trending">
+                    <div class="category-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Trending</h3>
+                    <p>What's Hot Right Now</p>
+                </div>
+                <div class="category-card" data-category="new">
+                    <div class="category-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>New Releases</h3>
+                    <p>Fresh Content Weekly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BaskLight</h3>
+                    <p>Premium cinematic experience for Hindi and Bengali entertainment.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="movies.html">Movies</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">DMCA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@basklight.com</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BaskLight by BandhanNova. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Authentication Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close" id="modal-close">&times;</span>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="auth-form active" id="login-form">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <input type="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-auth">Login</button>
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    <button type="button" class="btn-google" id="google-login">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                </form>
+
+                <!-- Signup Form -->
+                <form class="auth-form" id="signup-form">
+                    <h2>Join BaskLight</h2>
+                    <div class="form-group">
+                        <input type="text" id="signup-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="signup-email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-auth">Sign Up</button>
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    <button type="button" class="btn-google" id="google-signup">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

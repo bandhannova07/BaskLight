@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - BaskLight</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h1>BaskLight</h1></a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="movies.html" class="nav-link">Movies</a>
+                <a href="music.html" class="nav-link">Music</a>
+                <a href="about.html" class="nav-link">About</a>
+                <div class="nav-user" id="nav-user">
+                    <div class="user-dropdown">
+                        <img src="" alt="User" class="user-avatar" id="user-avatar">
+                        <span class="user-name" id="user-name"></span>
+                        <div class="dropdown-content">
+                            <a href="profile.html" class="active"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <section class="profile-header">
+        <div class="container">
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <img src="" alt="Profile" id="profile-avatar">
+                    <button class="avatar-edit" id="avatar-edit">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-details">
+                    <h1 id="profile-name">Loading...</h1>
+                    <p id="profile-email">Loading...</p>
+                    <div class="profile-meta">
+                        <span><i class="fas fa-calendar"></i> Joined <span id="join-date">Loading...</span></span>
+                        <span><i class="fas fa-heart"></i> <span id="favorites-count">0</span> Favorites</span>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-secondary" id="edit-profile-btn">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Navigation -->
+    <section class="profile-nav">
+        <div class="container">
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="favorites">
+                    <i class="fas fa-heart"></i> Favorites
+                </button>
+                <button class="profile-tab" data-tab="watchlist">
+                    <i class="fas fa-bookmark"></i> Watchlist
+                </button>
+                <button class="profile-tab" data-tab="downloads">
+                    <i class="fas fa-download"></i> Downloads
+                </button>
+                <button class="profile-tab" data-tab="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="profile-content">
+        <div class="container">
+            <!-- Favorites Tab -->
+            <div class="tab-content active" id="favorites-tab">
+                <div class="content-section">
+                    <h2>Favorite Movies</h2>
+                    <div class="favorites-grid" id="favorite-movies">
+                        <!-- Favorite movies will be loaded here -->
+                    </div>
+                </div>
+                <div class="content-section">
+                    <h2>Favorite Songs</h2>
+                    <div class="favorites-grid" id="favorite-songs">
+                        <!-- Favorite songs will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Watchlist Tab -->
+            <div class="tab-content" id="watchlist-tab">
+                <div class="content-section">
+                    <h2>Movies to Watch</h2>
+                    <div class="watchlist-grid" id="watchlist-movies">
+                        <!-- Watchlist movies will be loaded here -->
+                    </div>
+                </div>
+                <div class="content-section">
+                    <h2>Songs to Listen</h2>
+                    <div class="watchlist-grid" id="watchlist-songs">
+                        <!-- Watchlist songs will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Downloads Tab -->
+            <div class="tab-content" id="downloads-tab">
+                <div class="content-section">
+                    <h2>Downloaded Movies</h2>
+                    <div class="downloads-list" id="downloaded-movies">
+                        <!-- Downloaded movies will be loaded here -->
+                    </div>
+                </div>
+                <div class="content-section">
+                    <h2>Downloaded Songs</h2>
+                    <div class="downloads-list" id="downloaded-songs">
+                        <!-- Downloaded songs will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings-tab">
+                <div class="settings-section">
+                    <h2>Account Settings</h2>
+                    <form class="settings-form" id="account-settings">
+                        <div class="form-group">
+                            <label for="display-name">Display Name</label>
+                            <input type="text" id="display-name" placeholder="Your display name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-settings">Email</label>
+                            <input type="email" id="email-settings" placeholder="Your email" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" placeholder="Tell us about yourself" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </form>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Preferences</h2>
+                    <div class="preference-item">
+                        <label class="switch">
+                            <input type="checkbox" id="auto-play">
+                            <span class="slider"></span>
+                        </label>
+                        <div class="preference-info">
+                            <h4>Auto-play videos</h4>
+                            <p>Automatically play videos when you hover over them</p>
+                        </div>
+                    </div>
+                    <div class="preference-item">
+                        <label class="switch">
+                            <input type="checkbox" id="notifications">
+                            <span class="slider"></span>
+                        </label>
+                        <div class="preference-info">
+                            <h4>Email notifications</h4>
+                            <p>Receive updates about new content and features</p>
+                        </div>
+                    </div>
+                    <div class="preference-item">
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode">
+                            <span class="slider"></span>
+                        </label>
+                        <div class="preference-info">
+                            <h4>Dark mode</h4>
+                            <p>Use dark theme for better viewing experience</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Privacy & Security</h2>
+                    <div class="security-actions">
+                        <button class="btn-secondary" id="change-password-btn">
+                            <i class="fas fa-key"></i> Change Password
+                        </button>
+                        <button class="btn-secondary" id="download-data-btn">
+                            <i class="fas fa-download"></i> Download My Data
+                        </button>
+                        <button class="btn-danger" id="delete-account-btn">
+                            <i class="fas fa-trash"></i> Delete Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="edit-profile-modal">
+        <div class="modal-content">
+            <span class="close" id="edit-modal-close">&times;</span>
+            <div class="edit-profile-container">
+                <h2>Edit Profile</h2>
+                <form id="edit-profile-form">
+                    <div class="form-group">
+                        <label for="edit-name">Full Name</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-bio">Bio</label>
+                        <textarea id="edit-bio" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-avatar">Profile Picture</label>
+                        <input type="file" id="edit-avatar" accept="image/*">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-edit">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal" id="password-modal">
+        <div class="modal-content">
+            <span class="close" id="password-modal-close">&times;</span>
+            <div class="password-container">
+                <h2>Change Password</h2>
+                <form id="change-password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-password">Cancel</button>
+                        <button type="submit" class="btn-primary">Update Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BaskLight</h3>
+                    <p>Premium cinematic experience for Hindi and Bengali entertainment.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="movies.html">Movies</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">DMCA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@basklight.com</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BaskLight by BandhanNova. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

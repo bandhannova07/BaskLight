@@ -1,0 +1,114 @@
+{
+  "name": "basklight-streaming-platform",
+  "version": "1.0.0",
+  "description": "Premium cinematic streaming platform for Hindi and Bengali movies and music",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -c-1",
+    "dev": "npx http-server -p 3000 -c-1 -o",
+    "build": "echo 'Static site - no build process required'",
+    "deploy": "netlify deploy --prod --dir .",
+    "lint": "echo 'Linting not configured'",
+    "test": "echo 'Tests not configured'"
+  },
+  "keywords": [
+    "streaming",
+    "movies",
+    "music",
+    "hindi",
+    "bengali",
+    "cinema",
+    "entertainment",
+    "firebase",
+    "responsive",
+    "pwa"
+  ],
+  "author": {
+    "name": "BandhanNova Team",
+    "email": "support@basklight.com",
+    "url": "https://basklight.com"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bandhannova07/BaskLight.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bandhannova07/BaskLight/issues",
+    "email": "support@basklight.com"
+  },
+  "homepage": "https://basklight.netlify.app",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "netlify-cli": "^17.0.0"
+  },
+  "dependencies": {},
+  "config": {
+    "firebase": {
+      "version": "10.7.0",
+      "services": [
+        "auth",
+        "firestore",
+        "storage"
+      ]
+    }
+  },
+  "netlify": {
+    "build": {
+      "publish": ".",
+      "command": "echo 'No build command needed for static site'"
+    },
+    "redirects": [
+      {
+        "from": "/api/*",
+        "to": "/.netlify/functions/:splat",
+        "status": 200
+      }
+    ],
+    "headers": [
+      {
+        "for": "/*",
+        "values": {
+          "X-Frame-Options": "DENY",
+          "X-XSS-Protection": "1; mode=block",
+          "X-Content-Type-Options": "nosniff",
+          "Referrer-Policy": "strict-origin-when-cross-origin"
+        }
+      },
+      {
+        "for": "*.js",
+        "values": {
+          "Cache-Control": "public, max-age=31536000"
+        }
+      },
+      {
+        "for": "*.css",
+        "values": {
+          "Cache-Control": "public, max-age=31536000"
+        }
+      }
+    ]
+  },
+  "pwa": {
+    "name": "BaskLight",
+    "short_name": "BaskLight",
+    "description": "Premium streaming platform for Hindi and Bengali entertainment",
+    "theme_color": "#ff6b35",
+    "background_color": "#0f0f23",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "start_url": "/",
+    "scope": "/"
+  }
+}

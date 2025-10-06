@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies - BaskLight</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><h1>BaskLight</h1></a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="movies.html" class="nav-link active">Movies</a>
+                <a href="music.html" class="nav-link">Music</a>
+                <a href="about.html" class="nav-link">About</a>
+                <div class="nav-auth" id="nav-auth">
+                    <button class="btn-login" id="login-btn">Login</button>
+                    <button class="btn-signup" id="signup-btn">Sign Up</button>
+                </div>
+                <div class="nav-user hidden" id="nav-user">
+                    <div class="user-dropdown">
+                        <img src="" alt="User" class="user-avatar" id="user-avatar">
+                        <span class="user-name" id="user-name"></span>
+                        <div class="dropdown-content">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Movies</h1>
+            <p>Discover premium Hindi and Bengali cinema</p>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="search-filters">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="movie-search" placeholder="Search movies...">
+                <button class="search-btn" id="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-language="all">All Movies</button>
+                <button class="filter-tab" data-language="hindi">Hindi</button>
+                <button class="filter-tab" data-language="bengali">Bengali</button>
+            </div>
+            <div class="filter-options">
+                <select id="genre-filter">
+                    <option value="all">All Genres</option>
+                    <option value="action">Action</option>
+                    <option value="drama">Drama</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="romance">Romance</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="horror">Horror</option>
+                </select>
+                <select id="year-filter">
+                    <option value="all">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Grid -->
+    <section class="movies-section">
+        <div class="container">
+            <div class="movies-grid" id="movies-grid">
+                <!-- Movies will be loaded dynamically -->
+            </div>
+            <div class="load-more">
+                <button class="btn-load-more" id="load-more-btn">Load More Movies</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Modal -->
+    <div class="modal" id="movie-modal">
+        <div class="modal-content movie-modal-content">
+            <span class="close" id="movie-modal-close">&times;</span>
+            <div class="movie-details">
+                <div class="movie-poster">
+                    <img id="modal-movie-poster" src="" alt="Movie Poster">
+                </div>
+                <div class="movie-info">
+                    <h2 id="modal-movie-title"></h2>
+                    <div class="movie-meta">
+                        <span class="movie-year" id="modal-movie-year"></span>
+                        <span class="movie-genre" id="modal-movie-genre"></span>
+                        <span class="movie-language" id="modal-movie-language"></span>
+                        <span class="movie-duration" id="modal-movie-duration"></span>
+                    </div>
+                    <p class="movie-description" id="modal-movie-description"></p>
+                    <div class="movie-actions">
+                        <button class="btn-primary" id="watch-btn">
+                            <i class="fas fa-play"></i> Watch Now
+                        </button>
+                        <button class="btn-secondary" id="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <button class="btn-favorite" id="favorite-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="login-prompt hidden" id="login-prompt">
+                        <p>Please login to watch or download movies</p>
+                        <button class="btn-login-prompt">Login Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div class="modal" id="video-modal">
+        <div class="modal-content video-modal-content">
+            <span class="close" id="video-modal-close">&times;</span>
+            <div class="video-container">
+                <div class="ad-container" id="ad-container">
+                    <video id="ad-video" controls>
+                        <source src="" type="video/mp4">
+                    </video>
+                    <div class="ad-skip" id="ad-skip">
+                        <span>Skip Ad in <span id="skip-timer">5</span>s</span>
+                        <button class="skip-btn hidden" id="skip-btn">Skip Ad</button>
+                    </div>
+                </div>
+                <video id="main-video" controls class="hidden">
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BaskLight</h3>
+                    <p>Premium cinematic experience for Hindi and Bengali entertainment.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="movies.html">Movies</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">DMCA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@basklight.com</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BaskLight by BandhanNova. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Authentication Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close" id="modal-close">&times;</span>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="auth-form active" id="login-form">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <input type="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-auth">Login</button>
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    <button type="button" class="btn-google" id="google-login">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                </form>
+
+                <!-- Signup Form -->
+                <form class="auth-form" id="signup-form">
+                    <h2>Join BaskLight</h2>
+                    <div class="form-group">
+                        <input type="text" id="signup-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="signup-email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-auth">Sign Up</button>
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    <button type="button" class="btn-google" id="google-signup">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/movies.js"></script>
+</body>
+</html>
